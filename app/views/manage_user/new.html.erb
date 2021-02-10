@@ -1,0 +1,53 @@
+<%= form_for @info, url:manage_user_index_path,method:'post' do |f| %>
+<div class="container form-group mt-5">
+    <h2>Personal information</h2><hr><br><br>
+    <div class="row">
+            <div class='col'>First Name<%=f.text_field :firstname, class:'form-control'%><b class="text-danger"><%=@info.errors[:firstname].to_sentence%></b><br><br></div>
+            <div class='col'>Middle Name<%=f.text_field :middlename, class:'form-control'%><br><br></div>
+            <div class='col'>Last Name<%=f.text_field :lastname, class:'form-control'%><b class="text-danger"><%=@info.errors[:lastname].to_sentence%></b><br><br></div>
+    </div>
+
+    <div class='row'>
+    <div class='col-4'>Birth Date<%=f.date_field :birthdate, class:'form-control'%><b class="text-danger"><%=@info.errors[:birthdate].to_sentence%></b><br><br></div>
+    <div class='col-6'>Gender<br><div class='col-4 '><%=f.radio_button :gender,'Male',class:'mr-3'%><label>Male</div> <div class='col-4'><%=f.radio_button :gender,'Female',class:'mr-3'%>Female</div><b class="text-danger"><%=@info.errors[:gender].to_sentence%></b><br><br></div>
+    </div>
+
+    <div class='row'>
+        <div class='col'>City<%=f.text_field :city,class:'form-control'%><br><br></div>
+        <div class='col'>State<%=f.text_field :state,class:'form-control'%><br><br></div>
+        <div class='col'>Contry<%=f.text_field :country,class:'form-control'%><br><br></div>
+    </div>
+
+    <div class='row'>
+        <div class='col-8'>Address<%=f.text_area :address,class:'form-control'%><b class="text-danger"><%=@info.errors[:address].to_sentence%></b><br><br><br><br></div>
+    </div>
+
+    <h2>Professional information</h2><hr><br><br>
+    <div class='row'>
+        <div class='col'>Company Name<%=f.text_field :companyname, class:'form-control'%><br><br></div>
+        <div class='col'>Position<%=f.text_field :position,class:'form-control'%><br><br></div>
+    </div>
+
+    <div class='row'>
+        <div class='col-8'>Email<%=f.text_field :email,class:'form-control'%><b class="text-danger"><%=@info.errors[:email].to_sentence%></b><br><br></div>
+    </div>
+
+    <div class='row'>
+        <div class='col'>Phone No<%=f.text_field :phoneno,class:'form-control'%><b class="text-danger"><%=@info.errors[:phoneno].to_sentence%></b><br><br></div>
+        <div class='col'>Alternate Phone No<%=f.text_field :alternatephoneno,class:'form-control'%><b class="text-danger"><%=@info.errors[:alternatephoneno].to_sentence%></b><br><br></div>
+    </div>
+
+    <div class='row'>
+        <div class='col-8'>Username<%=f.text_field :username,class:'form-control'%><b class="text-danger"><%=@info.errors[:username].to_sentence%></b><br><br></div>
+    </div>
+
+    <div class='row'>
+        <div class='col'>password<%=f.text_field :password, class:'form-control'%><b class="text-danger"><%=@info.errors[:password_confirmation].to_sentence%> <%=@info.errors[:password].to_sentence%></b><br><br></div>
+        <div class='col'>Confirm password<%=f.text_field :password_confirmation,class:'form-control'%><b class="text-danger"><%=@info.errors[:password_confirmation].to_sentence%><%=@info.errors[:password].to_sentence%></b><br><br></div>
+    </div>
+
+    <div class='row mb-5'>
+        <div class='col-4'><%=f.submit "Submit",class:"btn btn-success"%></div>
+    </div>
+</div>
+<%end%>
